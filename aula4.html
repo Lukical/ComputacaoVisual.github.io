@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <title>Computação Visual</title>
+</head>
+<body>
+    <div class="navegacao">
+        <div class="container">
+          <nav class="navbar navbar-expand-sm">
+            <a href="index.html"><h1 class="pt-1">Computação Visual</h1></a>
+          </nav>
+        </div>
+    </div>
+    <div class="container mt-2 mb-3">
+        <h1>Aula 4:</h1>
+        <hr>
+        <div>
+            <h5>Faça uma pesquisa em livros, artigos científicos e materiais de eventos de Computação Gráfica e Visão Computacional e procure pelo menos um trabalho em que as pessoas usaram o filtro de suavização (blur) como uma das etapas para resolver um problema nas áreas de Computação Gráfica ou Visão Computacional.</h5>
+            <hr>
+            <div>
+                <p>A biometria sempre foi utilizado pelo homem para o reconhecimento
+                    das pessoas, onde é de extrema importância na área de segurança, assim garantindo
+                    a autenticação do usuario em diversas plataformas.
+                </p>
+                <p>Por conta disso é necessário um dispositivo competente para realizar a biometria
+                    do usuario de forma que seja o mais próximo possível da realidade. O tratamento
+                    de imagens é a etapa mais importante nesse processo, pois ele melhora a qualidade
+                    da imagem recebida e ajuda o programa a entender melhor as minúciosidades recebidas.
+                </p>
+                <p>
+                    Ápos o recebimento de uma imagem, ela é passada pelo processo de equalização, para
+                    uma melhor leitura da imagem. Depois disso a imagem é repassada para um filtro gaussiano,
+                    suavizando os pixels e eliminando os poros e sujeiras da imagem. 
+                </p>
+                <p>Alguns poros podem ser grandes dependendo do problema, podendo causar uma má interpretação
+                    do algoritmo, então é utilizado o filtro de blur para uma pequena distorção
+                    da imagem para corrigir esse problema.
+                </p>
+                <p>Depois disso a imagem é submetida a binarização, onde é tranformado a imagem para
+                    preto e branco, para facilitar ainda mais a leitura da imagem e por fim é submetida
+                    a um afinamento de linhas, onde é removido pixels que podem ser redundantes.
+                </p>
+                <div style="text-align: center">
+                    <img src="img/aula4.png" alt="">
+                </div>               
+                <p><small>a - imagem obtida do leitor biométrico; b – imagem equalizada; c – imagem sob ação do filtro
+                    gaussiano; d – imagem sob ação do filtro motion blur; e – imagem binarizada com threshold adaptativo; f
+                    – imagem afinada com um pixel de largura</small></p>
+                <p>
+                    infelizmente, nesse projeto não foi possível obter uma boa taxa de acerto
+                    das imagens disponibilizadas, mas a utilização de motion blur foi de extrema
+                    importância para limpar a imagem e deixar mais claro onde então as partes que 
+                    realmente importam para a biometria poder realizar a autenticação de um usuário.
+                </p>
+            </div>
+        </div>
+        <small>
+            <p>Referencias:</p>
+            <a href="https://d1wqtxts1xzle7.cloudfront.net/30269140/fund05-with-cover-page-v2.pdf?Expires=1663007988&Signature=D4tchrgTQAqiwcCf9~NNp-sb1vpvUaEDtreoaYfDzng5KsEXoYrL1g4Ewnbw5A1GnYaXjEm-rdB~0PEbwDa49k2AFY4Voof2UpRwIyh78TQZKvmWerLrgDtcIl5chu0TBD~dJUPvXMTFA8b9kfSUARIgJxeXIcquxdSsanrlD~oFPbsb7~fp8UMhzdehRWcrlUS5~KGkF7R3r-tZye4wORwfXkugmqKUBBsDaj1S2PgFaaIAYnOOmr2VkVypjAMqh8bFwlc9R7sgR3xwYZxj55V6U5d3z-7dYqmCS2I-zbsKcezK7EyrbYndVSdc0felxGtkA4yZQirzfoX9Gve7hQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA">
+                Identificação Biométrica através da Impressão Digital Usando Redes 
+                Neurais Artificiais - Renan Mazi
+            </a>
+        </small>
+    </div>
+</body>
+</html>
