@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <title>Computação Visual</title>
+</head>
+<body>
+    <div class="navegacao">
+        <div class="container">
+          <nav class="navbar navbar-expand-sm">
+            <a href="index.html"><h1 class="pt-1">Computação Visual</h1></a>
+          </nav>
+        </div>
+    </div>
+    <div class="container mt-2 mb-3">
+        <h1>Aula 5:</h1>
+        <hr>
+        <div class="cell code" data-execution_count="13" id="VCiVBPplvL7M">
+            <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+            <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+            <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> data</span>
+            <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> filters</span>
+            <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage.color <span class="im">import</span> rgb2gray</span>
+            <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> exposure</span></code></pre></div>
+            </div>
+            <div class="cell code" data-execution_count="24" data-colab="{&quot;height&quot;:298,&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}" id="gIBe_1t_v51J" data-outputId="6de58a2b-3296-4d68-bd6f-b91e49e66206">
+            <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> data.chelsea()</span>
+            <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>gray_img <span class="op">=</span> rgb2gray(img)</span>
+            <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Imagem Original&quot;</span>)</span>
+            <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.imshow(img, cmap <span class="op">=</span> <span class="st">&#39;gray&#39;</span>) </span></code></pre></div>
+            <div class="output execute_result" data-execution_count="24">
+            <pre><code>&lt;matplotlib.image.AxesImage at 0x7f10cd25e150&gt;</code></pre>
+            </div>
+            <div class="output display_data">
+            <p><img src="img/aula5/39c0bf813d8ce687b08f53f71706bbc9ed78dc2c.png" /></p>
+            </div>
+            </div>
+            <div class="cell code" data-execution_count="25" data-colab="{&quot;height&quot;:298,&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}" id="PqSrfUCwOvpc" data-outputId="aeef4243-b8c4-4073-e210-87df84d7fbb6">
+            <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Imagem Preto e Branco&quot;</span>)</span>
+            <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(gray_img, cmap <span class="op">=</span> <span class="st">&#39;gray&#39;</span>)   </span></code></pre></div>
+            <div class="output execute_result" data-execution_count="25">
+            <pre><code>&lt;matplotlib.image.AxesImage at 0x7f10cda29b90&gt;</code></pre>
+            </div>
+            <div class="output display_data">
+            <p><img src="img/aula5/3e89c1ae05c824132886ef3128c82b24d486290e.png" /></p>
+            </div>
+            </div>
+            <div class="cell markdown" id="OjI80EJ0RUJz">
+            <p>#1 Realizar a limiarização de uma imagem usando Python e scikit-image.</p>
+            </div>
+            <div class="cell code" data-execution_count="26" data-colab="{&quot;height&quot;:1000,&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}" id="-EQY5mogvQYM" data-outputId="1c2cb1d7-6f03-4c34-bdce-694491d2cc20">
+            <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">15</span>))</span>
+            <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+            <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  binarized_gray <span class="op">=</span> (gray_img <span class="op">&gt;</span> i<span class="op">*</span><span class="fl">0.1</span>)<span class="op">*</span><span class="dv">1</span></span>
+            <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  plt.subplot(<span class="dv">5</span>,<span class="dv">2</span>,i<span class="op">+</span><span class="dv">1</span>)</span>
+            <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  plt.title(<span class="st">&quot;Threshold: &gt;&quot;</span><span class="op">+</span><span class="bu">str</span>(<span class="bu">round</span>(i<span class="op">*</span><span class="fl">0.1</span>,<span class="dv">1</span>)))</span>
+            <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  plt.imshow(binarized_gray, cmap <span class="op">=</span> <span class="st">&#39;gray&#39;</span>)</span>
+            <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div>
+            <div class="output display_data">
+            <p><img src="img/aula5/640c5b8ee2425c23237b76c325e83559cba4396f.png" /></p>
+            </div>
+            </div>
+            <div class="cell markdown" id="lw323sm-RRKs">
+            <p>#2 Plotar o histograma de uma imagem tons de cinza usando Python, scikit-image e matplotlib.</p>
+            </div>
+            <div class="cell code" data-execution_count="27" data-colab="{&quot;height&quot;:369,&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}" id="v4eXWV2_zFTu" data-outputId="dad0d23a-0cb0-46b7-d7c8-d526b4c2c3dc">
+            <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.hist (gray_img.ravel())</span></code></pre></div>
+            <div class="output execute_result" data-execution_count="27">
+            <pre><code>(array([  971.,  2171.,  4040.,  8382., 18469., 29427., 32736., 23188.,
+                    13322.,  2594.]),
+             array([0.01512078, 0.0891698 , 0.16321882, 0.23726784, 0.31131686,
+                    0.38536588, 0.4594149 , 0.53346392, 0.60751294, 0.68156196,
+                    0.75561098]),
+             &lt;a list of 10 Patch objects&gt;)</code></pre>
+            </div>
+            <div class="output display_data">
+            <p><img src="img/aula5/a4cb41843d52ffab09d33163802478d128c5e2d1.png" /></p>
+            </div>
+            </div>
+            <div class="cell markdown" id="JADI3c2DRPPg">
+            <p>#3 Plotar o histograma de uma imagem colorida (um histograma por canal de cor) usando Python, scikit-image e matplotlib.</p>
+            </div>
+            <div class="cell code" data-execution_count="28" data-colab="{&quot;height&quot;:288,&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}" id="zsO9igDl1Okj" data-outputId="c7a7b4bc-1968-4bfc-8945-6be8b9908e30">
+            <div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>img_red, img_green, img_blue <span class="op">=</span> img[:,:,<span class="dv">0</span>], img[:,:,<span class="dv">1</span>], img[:,:,<span class="dv">2</span>]</span>
+            <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+            <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>)</span>
+            <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].imshow(img_red, cmap<span class="op">=</span><span class="st">&#39;gray&#39;</span>)</span>
+            <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].imshow(img_green, cmap<span class="op">=</span><span class="st">&#39;gray&#39;</span>)</span>
+            <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].imshow(img_blue, cmap<span class="op">=</span><span class="st">&#39;gray&#39;</span>)</span>
+            <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a> </span>
+            <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> np.arange(<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">255</span><span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+            <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].hist(img_red.flatten(), bins <span class="op">=</span> bins, color<span class="op">=</span><span class="st">&#39;r&#39;</span>)</span>
+            <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].hist(img_green.flatten(), bins<span class="op">=</span>bins, color<span class="op">=</span><span class="st">&#39;g&#39;</span>)</span>
+            <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].hist(img_blue.flatten(), bins<span class="op">=</span>bins, color<span class="op">=</span><span class="st">&#39;b&#39;</span>)</span>
+            <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+            <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">30</span>, <span class="dv">30</span>))</span></code></pre></div>
+            <div class="output execute_result" data-execution_count="28">
+            <pre><code>&lt;Figure size 2160x2160 with 0 Axes&gt;</code></pre>
+            </div>
+            <div class="output display_data">
+            <p><img src="img/aula5/6fa88860fc7336eaf3b370541dbfe419e478cf16.png" /></p>
+            </div>
+            <div class="output display_data">
+            <pre><code>&lt;Figure size 2160x2160 with 0 Axes&gt;</code></pre>
+            </div>
+            </div>
+            <div class="cell markdown" id="ILyqE6GkRMq7">
+            <p>#4 Equalizar o histograma de uma imagem usando Python e scikit-image.</p>
+            </div>
+            <div class="cell code" data-execution_count="29" data-colab="{&quot;height&quot;:286,&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}" id="xBiB9kEeNJST" data-outputId="86998c2a-b4a8-4387-af3a-84c215b7e72b">
+            <div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>img_eq <span class="op">=</span> exposure.equalize_hist(gray_img)</span>
+            <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(img_eq, cmap <span class="op">=</span> <span class="st">&#39;gray&#39;</span>)   </span></code></pre></div>
+            <div class="output execute_result" data-execution_count="29">
+            <pre><code>&lt;matplotlib.image.AxesImage at 0x7f10ccebd410&gt;</code></pre>
+            </div>
+            <div class="output display_data">
+            <p><img src="img/aula5/5410859e2cd3547e153e69bce8aea52f76caae0d.png" /></p>
+            </div>
+            </div>
+            <div class="cell markdown" id="JsOStHPgO4TX">
+            <p>#5 Detectar (concluir) que uma foto está subexposta ou que está superexposta, analisando o histograma.</p>
+            <p>A imagem tende mais a Superexposição, pois analizando o gráfico da questão número 2 ele tende a conter maiores concentrações ao lado esquerdo do gráfico.</p>
+            </div>
+            <div class="cell markdown" id="XW_3Yj0fQpeV">
+            <p>#6 Detectar (concluir) se uma imagem está com baixo contraste ou alto contraste, analisando o histograma.</p>
+            <p>O contraste de vermelho é mais baixo, o do verde é equilibrado e do azul é alto, analizando o gráfico da questão 3.</p>
+            </div>
+            <hr> 
+            <small>Referencias:
+                <br>
+                <a href="https://acervolima.com/segmentacao-de-imagens-usando-o-modulo-scikit-image-do-python/">Segmentacao Scikit Image</a><br>
+                <a href="https://danielmuellerkomorowska.com/2020/06/17/analyzing-image-histograms-with-scikit-image/">Histograms with scikit-image</a>
+            </small> 
+    </div>
+</body>
+</html>
