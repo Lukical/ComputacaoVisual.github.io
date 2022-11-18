@@ -18,11 +18,78 @@
     <div class="container mt-2 mb-3">
         <h1>Aula 7:</h1>
         <hr>
-        
+        <h3>APIs Gráficas</h3>
+        <p>As APIs gráficas são responsáveis pelo processamento gráfico 3D, fazendo a cominicação
+            entre os drivers e a placa de vídeo. A API fica em uma camada entre o driver e a engine de motor
+            gráfico, onde o driver é responsável por levar instruções para o hardware comunicar entre os aplicativos
+            utilizados no computador. 
+        </p>
+        <p>As APIs atualmente mais utilizadas atualmente são o DirectX e Vulkan, onde são muito utilizadas
+            para o processamento de gráfico de aplicações.
+        </p>
+        <h4>DirectX:</h4>
+        <p>O pipeline do direct3D 11 foi projetado para gerar elementos gráficos 
+            para aplicativos de jogos em tempo real. Abaixo é mostrado cada seção da pipeline
+            realizada pelo directX 11.
+        </p>
+        <div style="text-align: center">
+            <img src="img/aula7/pipeDirectx11.png" alt="">
+        </div>
+        <p>Cada interface de sombreamento da API passa por um shader compilado, a interface
+            é criada e quando um shader é compilado é passada para as APIs que precissam desse shader.
+            Abaixo contém exemplos de alguns desses shaders utilizados.
+        </p>
+        <div style="text-align: center">
+            <img src="img/aula7/shaderDirectx11.png" alt="">
+        </div>
+        <p>Abaixo contém um exemplo, hello word, de como podemos começar programar em DirectX 11.</p>
+        <div style="text-align: center">
+            <img src="img/aula7/helloDirectx11.png" alt="">
+        </div>
+        <hr>
+        <h4>Vulkan:</h4>
+        <p>Assim como o directX 11, o vulkan é muito utilizado para gerar elementos gráficos 
+            para aplicativos em tempo real. Abaixo é mostrada como funciona sua pipeline.
+        </p>
+        <div style="text-align: center">
+            <img src="img/aula7/pipeVulkan.png" alt="">
+        </div>
+        <p>Diferente do directX 11 a vulkan utiliza menos shaders, onde são classificados como
+            Vertex shader, Fragment shader e Per-vertex colors, cada um responsavel por realizar
+            a atribuição do shading.
+        </p>
+        <p>Abaixo contém um exemplo, hello word, de como podemos começar programar em Vulkan.</p>
+        <div style="text-align: center">
+            <img src="img/aula7/helloVulkan1.png" alt="">
+            <img src="img/aula7/helloVulkan2.png" alt="">
+        </div>
+        <p></p>
         <hr>
         <small>Referencias:
             <br>
-            
+            <a href="https://blog.2amgaming.com/2019/09/o-que-e-api-grafica/">
+                Definição API
+            </a>
+            <br>
+            <a href="https://learn.microsoft.com/pt-br/windows/win32/direct3d11/overviews-direct3d-11-graphics-pipeline">
+                DirectX 11 - Pipeline,
+            </a>
+            <a href="https://learn.microsoft.com/pt-br/windows/win32/direct3d11/d3d11-graphics-reference-d3d11-shader-interfaces">
+                Shader,
+            </a>
+            <a href="https://antongerdelan.net/opengl/d3d11.html">
+                Hello
+            </a>
+            <br>
+            <a href="https://vulkan-tutorial.com/Drawing_a_triangle/Graphics_pipeline_basics/Introduction">
+                Vulkan 11 - Pipeline,
+            </a>
+            <a href="https://vulkan-tutorial.com/Drawing_a_triangle/Graphics_pipeline_basics/Shader_modules">
+                Shader,
+            </a>
+            <a href="https://vulkan-tutorial.com/Drawing_a_triangle/Setup/Base_code">
+                Hello
+            </a>
         </small> 
     </div>
 </body>
