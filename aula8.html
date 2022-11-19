@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <title>Computação Visual</title>
+</head>
+<body>
+    <div class="navegacao">
+        <div class="container">
+          <nav class="navbar navbar-expand-sm">
+            <a href="index.html"><h1 class="pt-1">Computação Visual</h1></a>
+          </nav>
+        </div>
+    </div>
+    <div class="container mt-2 mb-3">
+        <h1>Aula 8:</h1>
+        <hr>
+        <h3>Cel Shading</h3>
+        <p>
+            O Cel Shaing é uma técnica 3D de modelos não foto-realistas, utilizado geralmente
+            em filmes e jogos, onde é incorporado imagens de
+            desenhos no processo de shading onde é utilizado uma tecnica de quantização da cor
+            sobre uma paleta de cor específica.
+        </p>
+        <p>
+            A realização dessa técnica é obtida em três passos.
+            A Primeira é a realização normal de alguma técnica de shading, depois é realizado
+            a quantização das cores em cena, dando uma pincelada cartoonesca na cena onde
+            os objetos ficam com cores uniformes passando a ser quadros de desenho. E por 
+            último o desenho é contornado pelas suas bordas internas e externas, dando um aspecto
+            de desenho mais realista. 
+        </p>
+        <div style="text-align: center">
+            <img style="width: 600px;" src="img/aula8/genshin.png" alt="">
+            <p><small>Jogo Genshin Impact onde é utilizado a técnica de Cel Shading.</small></p>
+        </div>
+        <p>Os shading Phong e Gouraud Shadding
+            geralmente utilizam o algoritmo Z-Buffer
+            para decidir quais objetos devem aparecer na
+            frente dos outros, enquanto o Cel Shaing utiliza mapa de normais para o mapeamento
+            de pixels na tela. Além disso o mapa de normais não é armazenado diferente do Z-Buffer
+            que da o subproduto dos mapas de profundidade.
+        </p>
+        <div style="text-align: center">
+            <img style="width: 600px;" src="img/aula8/comparacao.jpg" alt="">
+            <p><small>Comparação entre o Cel, Phong e Gouraud Shadding.</small></p>
+        </div>
+        <hr>
+        <small>Referencias:
+            <br>
+            <a href="https://www.cin.ufpe.br/~dfp/files/PG/cel-shading.pdf">
+                Cel Shading - Daker Fernandes Pinheiro.
+            </a>
+            <br>
+            <a href="https://youtu.be/dHfu3VkoZ5U">
+                Comparação Cel, Phong e Gouraud Shadding.
+            </a>
+        </small> 
+    </div>
+</body>
+</html>
